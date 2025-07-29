@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { MealCard } from "../home/component/MealCard";
 import { mealApi } from "../../lib/meal-api";
-import { Heart, Loader2, ChefHat, Trash2 } from "lucide-react";
+import { Heart, Loader2, ChefHat, Trash2, ArrowLeft } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { toast } from "../../hooks/use-toast";
-import { Header } from "./Header";
+import { Header } from "./component/Header";
+import { Link } from "react-router-dom";
 
 export default function Favorite() {
     const [favoriteMeals, setFavoriteMeals] = useState([]);
@@ -68,18 +69,18 @@ export default function Favorite() {
 
     if (isLoading) {
         return (
-            <div className="container mx-auto px-4 py-8">
+            <div className="container mx-auto px-4 py-8 bg-amber-50 min-h-screen">
+                <Header />
                 <div className="flex items-center justify-center min-h-[400px]">
-                    <Loader2 className="h-8 w-8 animate-spin mr-2" />
-                    <span className="text-lg">Loading your favorites...</span>
+                    <Loader2 className="h-8 w-8 animate-spin mr-2 text-amber-600" />
+                    <span className="text-lg text-amber-900">Loading your favorites...</span>
                 </div>
             </div>
         );
     }
 
     return (
-        <div>
-            <Header />
+        <div className="bg-amber-50 min-h-screen">
             <div className="container mx-auto px-4 py-8">
                 <div className="text-center mb-8">
                     <div className="flex justify-center mb-4">
@@ -87,14 +88,13 @@ export default function Favorite() {
                             <Heart className="h-16 w-16 text-red-500 fill-current" />
                         </div>
                     </div>
-                    <h1 className="text-lg md:text-2xl font-bold mb-4 bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4 text-amber-900">
                         Your Favorite Meals
                     </h1>
 
-
                     {favoriteMeals.length > 0 && (
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                            <div className="flex items-center gap-2 text-muted-foreground">
+                            <div className="flex items-center gap-2 text-amber-800">
                                 <Heart className="h-5 w-5 text-red-500 fill-current" />
                                 <span>
                                     {favoriteMeals.length} favorite
@@ -105,7 +105,7 @@ export default function Favorite() {
                                 variant="outline"
                                 size="sm"
                                 onClick={clearAllFavorites}
-                                className="flex items-center gap-2 text-destructive hover:text-destructive bg-transparent"
+                                className="flex items-center gap-2 text-red-600 hover:text-red-700 border-red-300 hover:bg-red-50"
                             >
                                 <Trash2 className="h-4 w-4" />
                                 Clear All
@@ -131,23 +131,20 @@ export default function Favorite() {
                         ))}
                     </div>
                 ) : (
-                    <Card className="max-w-md mx-auto">
+                    <Card className="max-w-md mx-auto border-amber-200 bg-amber-100">
                         <CardContent className="text-center py-12">
-                            <Heart className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold mb-2">No favorites yet</h3>
-                            <p className="text-muted-foreground mb-6">
+                            <Heart className="h-16 w-16 text-amber-400 mx-auto mb-4" />
+                            <h3 className="text-xl font-semibold mb-2 text-amber-900">No favorites yet</h3>
+                            <p className="text-amber-800/80 mb-6">
                                 Start exploring and save your favorite meals by clicking the heart icon on any recipe!
                             </p>
-                            <Button asChild>
-                                <a href="/">Discover Meals</a>
+                            <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white">
+                                <Link to="/">Discover Meals</Link>
                             </Button>
                         </CardContent>
                     </Card>
                 )}
-
-
             </div>
         </div>
-
     );
 }

@@ -1,12 +1,14 @@
 import React from 'react'
-import { Header } from './Header'
-import Landingpage from './Landingpage'
+import { Header } from './component/Header'
+import Landingpage from './component/Landingpage'
+import { Footer } from './component/Footer'
 
 function Home() {
     return (
         <div className='w-full'>
-            <Header />
+            {/* <Header /> */}
             <Landingpage />
+            {/* <Footer /> */}
         </div>
     )
 }

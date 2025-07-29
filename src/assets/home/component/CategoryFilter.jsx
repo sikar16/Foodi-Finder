@@ -39,7 +39,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }) {
                         variant={selectedCategory === null ? "default" : "outline"}
                         size="sm"
                         onClick={() => onCategoryChange(null)}
-                        className="shrink-0"
+                        className="shrink-0 cursor-pointer hover:bg-amber-600 hover:text-white transition-colors bg-amber-100 text-amber-800"
                     >
                         All Categories
                     </Button>
@@ -49,7 +49,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }) {
                             variant={selectedCategory === category.strCategory ? "default" : "outline"}
                             size="sm"
                             onClick={() => onCategoryChange(category.strCategory)}
-                            className="shrink-0"
+                            className="shrink-0 cursor-pointer hover:bg-amber-600 hover:text-white transition-colors bg-amber-100 text-amber-800"
                         >
                             {category.strCategory}
                         </Button>

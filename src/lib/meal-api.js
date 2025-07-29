@@ -1,5 +1,4 @@
-const BASE_URL = "https://www.themealdb.com/api/json/v1/1";
-
+const BASE_URL = import.meta.env.VITE_BASE_URL || "https://www.themealdb.com/api/json/v1/1"
 export const mealApi = {
   // Search meals by name
   searchByName: async (name) => {
