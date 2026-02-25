@@ -1,6 +1,5 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL || "https://www.themealdb.com/api/json/v1/1"
 export const mealApi = {
-  // Search meals by name
   searchByName: async (name) => {
     try {
       const response = await fetch(`${BASE_URL}/search.php?s=${encodeURIComponent(name)}`);
@@ -12,7 +11,6 @@ export const mealApi = {
     }
   },
 
-  // Search meals by ingredient
   searchByIngredient: async (ingredient) => {
     try {
       const response = await fetch(`${BASE_URL}/filter.php?i=${encodeURIComponent(ingredient)}`);
@@ -24,7 +22,6 @@ export const mealApi = {
     }
   },
 
-  // Get meal details by ID
   getMealById: async (id) => {
     try {
       const response = await fetch(`${BASE_URL}/lookup.php?i=${id}`);
@@ -36,7 +33,6 @@ export const mealApi = {
     }
   },
 
-  // Get random meal
   getRandomMeal: async () => {
     try {
       const response = await fetch(`${BASE_URL}/random.php`);
@@ -48,7 +44,6 @@ export const mealApi = {
     }
   },
 
-  // Get all categories
   getCategories: async () => {
     try {
       const response = await fetch(`${BASE_URL}/categories.php`);
@@ -60,7 +55,6 @@ export const mealApi = {
     }
   },
 
-  // Filter meals by category
   filterByCategory: async (category) => {
     try {
       const response = await fetch(`${BASE_URL}/filter.php?c=${encodeURIComponent(category)}`);
@@ -72,7 +66,6 @@ export const mealApi = {
     }
   },
 
-  // Filter meals by area
   filterByArea: async (area) => {
     try {
       const response = await fetch(`${BASE_URL}/filter.php?a=${encodeURIComponent(area)}`);
@@ -84,7 +77,6 @@ export const mealApi = {
     }
   },
 
-  // Get all areas/countries
   getAreas: async () => {
     try {
       const response = await fetch(`${BASE_URL}/list.php?a=list`);
@@ -96,7 +88,6 @@ export const mealApi = {
     }
   },
 
-  // Get all ingredients
   getIngredients: async () => {
     try {
       const response = await fetch(`${BASE_URL}/list.php?i=list`);
