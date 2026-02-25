@@ -9,7 +9,6 @@ import { Card, CardContent } from "../../../components/ui/card";
 import { Badge } from "../../../components/ui/badge";
 import { toast } from "../../../hooks/use-toast";
 import { useSearchParams } from "react-router-dom";
-
 export default function Landingpage() {
     const [searchParams] = useSearchParams();
     const [meals, setMeals] = useState([]);
@@ -44,7 +43,6 @@ export default function Landingpage() {
                 console.error("Error loading initial data:", error);
             }
         };
-
         loadInitialData();
     }, []);
 
@@ -81,7 +79,6 @@ export default function Landingpage() {
             setIsLoading(false);
         }
     };
-
     const handleCategoryChange = async (category) => {
         if (category === selectedCategory) return;
 
@@ -110,7 +107,6 @@ export default function Landingpage() {
             setIsLoading(false);
         }
     };
-
     const handleAreaFilter = async (area) => {
         setSelectedCategory(null);
         setSearchQuery("");
@@ -131,7 +127,6 @@ export default function Landingpage() {
             setIsLoading(false);
         }
     };
-
     const handleRandomMeal = async () => {
         setIsLoading(true);
         try {
@@ -153,14 +148,12 @@ export default function Landingpage() {
             setIsLoading(false);
         }
     };
-
     const quickSearches = [
         { label: "Chicken", type: "ingredient" },
         { label: "Pasta", type: "name" },
         { label: "Beef", type: "ingredient" },
         { label: "Dessert", type: "name" },
     ];
-
     return (
         <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100">
             <div className="container mx-auto px-4 py-8">
